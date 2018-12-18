@@ -19,7 +19,7 @@ module AutoHtmlFor
       include AutoHtmlFor::InstanceMethods
 
       if defined?(ActiveRecord) == "constant"
-        return unless ActiveRecord::Base.connection.table_exists? self.table_name
+        return unless ActiveRecord::Base.connection.data_source_exists? self.table_name
       end
 
       suffix =  AutoHtmlFor.auto_html_for_options[:htmlized_attribute_suffix]
